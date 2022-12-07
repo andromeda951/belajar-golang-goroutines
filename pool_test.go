@@ -8,7 +8,11 @@ import (
 )
 
 func TestPool(t *testing.T) {
-	var pool sync.Pool
+	pool := sync.Pool{
+		New: func() interface{} {
+			return "New"
+		},
+	}
 
 	pool.Put("Eko")
 	pool.Put("Kurniawan")
