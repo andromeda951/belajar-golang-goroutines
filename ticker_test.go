@@ -13,9 +13,16 @@ func TestTicker(t *testing.T) {
 		time.Sleep(5 * time.Second)
 		ticker.Stop()
 	}()
-	
+
 	for tick := range ticker.C {
 		fmt.Println(tick)
 	}
+}
 
+func TestTick(t *testing.T) {
+	channel := time.Tick(1 * time.Second)
+
+	for tick := range channel {
+		fmt.Println(tick)
+	}
 }
